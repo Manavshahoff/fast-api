@@ -20,8 +20,9 @@ class UserOut(BaseModel):
     email: EmailStr
     created_at: datetime
 
-    class Config:
-        orm_mode = True
+    model_config = {
+    "from_attributes": True
+    }
 
 
 class Post(PostBase):
@@ -30,16 +31,18 @@ class Post(PostBase):
     owner_id: int
     owner: UserOut
 
-    class Config:
-        orm_mode = True
+    model_config = {
+    "from_attributes": True
+    }
 
 
 class PostOut(BaseModel):
     Post: Post
     votes: int
 
-    class Config:
-        orm_mode = True
+    model_config = {
+        "from_attributes": True
+    }
 
 
 class UserCreate(BaseModel):
@@ -58,7 +61,7 @@ class Token(BaseModel):
 
 
 class TokenData(BaseModel):
-    id: Optional[str] = None
+    id: Optional[int] = None
 
 
 class Vote(BaseModel):
