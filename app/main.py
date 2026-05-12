@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 print(settings.database_username)
 
-models.Base.metadata.create_all(bind=engine)
+# models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 origins = ["*"]
@@ -26,4 +26,4 @@ app.include_router(vote.router)
 
 @app.get("/")
 def root():
-    return {"message": "Hello World"}
+    return {"message": "Hello World from manav"}
